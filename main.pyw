@@ -1,3 +1,15 @@
+'''
+Code by - Deepanshu
+
+Github: Deepanshu-prajapati01
+Instagram: deepanshu_prajapati01
+
+
+'''
+
+
+
+
 import random
 from screeninfo import get_monitors
 import requests
