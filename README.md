@@ -4,22 +4,16 @@ This repository contains a Python script that automatically changes your desktop
 The script fetches high-quality images from the internet, ensuring you always have fresh and interesting wallpapers.
 It’s a great way to keep your desktop environment dynamic and engaging. 
 
-
-
-
 # Pros:
 
 * Automatically gives you the best wallpaper as per your display size.
-* Download new wallpapers automatically for later use.
+* Download new wallpapers automatically in advance.
 * Easy and simple setup.
 
 
 # Cons:
 
-* Incase you are not connected to the internet and all the wallpapers ran out, it will set a black screen as a wallpaper.
-* You must connect to internet once a day! - So the program if ran out of wallpaper's stock, then can download it.
-
-
+* This code saves upto 5 wallpapers stock in it. So to avoid any error. It won't delete any wallpaper when the stock is comes to 5 wallpapers.
 
 # HOW-TO-USE:
 
@@ -42,11 +36,15 @@ cd change-wallpaper-automatically
 pip install -r requirements.txt
 ```
 
-* Step 4> Run the following command, to open a special path in windows where you have to put the file `main.pyw`
+* Step 4> Run the following command, to open a special path in windows where you have to put the file `main.py`
 
 ```shell
 start shell:startup
 ```
 
-# Now just move the `main.pyw` file to the desired location and its done! Now whenever you start your pc, this file will run in the background.
+# Now just move the `main.py` file to the desired location and its done! Now whenever you start your pc, this file will run in the background. 
+
+
+# BOOM! YOU ARE GOOD TO GO!
+
 
