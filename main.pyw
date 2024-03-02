@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
   schedule.every().hour.do(change_wallpaper)
   while True:
-    if check_wallpaper(10):
+    if check_wallpaper(5):
       internet_available = True
     else:
       internet_available = False
