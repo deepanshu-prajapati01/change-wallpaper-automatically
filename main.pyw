@@ -50,6 +50,23 @@ def change_wallpaper():
   print(os.getcwd())
   files = os.listdir()
   name = random.choice(files)
+  newName = 'currentWallpaper.jpg'
+  
+  
+  
+  # THIS WILL DELETE THE APPLIED WALLPAPER ONLY IF THERE IS INTERNET OR THERE IS ENOUGH STOCK.
+  # ELSE IT WON'T DO ANYTHING.
+  try:
+    if internet_available:
+      os.remove(newName)
+      print(f"Wallpaper changed to - {name+1}")
+  except:
+    print(f"No wallpaper found with the name - {newName}")
+  finally:
+    # rename the wallpaper to the new name - 'currentWallpaper'
+    os.rename(name, newName)
+    name = newName  
+  
   try:
     # Use ctypes to change the wallpaper
     image_path = os.path.join(os.path.expanduser('~'), 'Desktop\\Wallpapers\\', f'{name}')
@@ -57,11 +74,7 @@ def change_wallpaper():
     ctypes.windll.user32.SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, image_path, 3)
     print("Wallpaper changed successfully!")
 
-    # THIS WILL DELETE THE APPLIED WALLPAPER ONLY IF THERE IS INTERNET OR THERE IS ENOUGH STOCK.
-    # ELSE IT WON'T DO ANYTHING.
-    if internet_available:
-      os.remove(image_path)
-    print(f"Wallpaper changed to - {name+1}")
+
   except:
     pass
 
@@ -80,13 +93,16 @@ if __name__ == '__main__':
   if not "Wallpapers" in os.listdir():
     os.mkdir("Wallpapers")
 
-  # MAKE IT SLEEP FOR 2 MINUTES SO ON STARTUP IT DON'T MAKE EXTRA BURDEN
-  print("Sleeping for 2 minutes;")
-  time.sleep(120)
+  # MAKE IT SLEEP FOR 10 seconds SO ON STARTUP IT DON'T MAKE EXTRA BURDEN
+  print("Sleeping for 10 seconds;")
+  # time.sleep(10)
 
   # Running it for the first time to download files
   if check_wallpaper(20):
     internet_available = True
+    
+  # temp check 
+  change_wallpaper()
 
   schedule.every().hour.do(change_wallpaper)
   while True:
